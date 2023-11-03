@@ -69,11 +69,20 @@ void GaussianElimination(vector<vector<double>>& a, vector<vector<double>>& a_co
         double x9 = a_copy[m - 1][n - 1] - x6;
         cout << "Residual vectors: " << x7 << ' ' << x8 << ' ' << x9 << endl;
 
-        double residual_norm = sqrt(x7 * x7 + x8 * x8 + x9 * x9);
-        cout << "Residual norm: " << residual_norm << endl;
+        double norm = abs(x7);
+        if (abs(x8) > norm)
+        {
+            norm = abs(x8);
+        }
+        if (abs(x9) > norm)
+        {
+            norm = abs(x9);
+        }
+        cout << "Norm of the residual vector: " << norm << endl;
+       
     }
-    k++;
 }
+
 
 int main() 
 {
